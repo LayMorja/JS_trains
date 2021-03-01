@@ -1,8 +1,11 @@
 let money = 60000;
 let income = 'фриланс';
-let addExpenses = [1, 3, 5];
+let addExpenses = 'интернет, такси, коммуналка';
 let deposit = true;
 let mission = 3000000;
 let period = 12;
 
-console.log(typeOf(money));
+console.log(typeof money);
+console.log(typeof income);
+console.log(typeof deposit);
+console.log(addExpenses.length);
