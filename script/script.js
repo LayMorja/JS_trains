@@ -1,12 +1,18 @@
 'use strict';
+
 let money = +prompt('Каков Ваш месячный доход?');
+
 let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+
 let deposit = prompt('Есть ли у вас депозит в банке?', 'нет');
+
 let expenses1 = prompt('Введите обязательную статью расходов');
 let amount1 = +prompt('Во сколько это обойдется?');
+
 let expenses2 = prompt('Введите обязательную статью расходов');
 let amount2 = +prompt('Во сколько это обойдется?');
-let mission = +prompt('Какова цель Ваших сбережений?')
+
+let mission = +prompt('Какова цель Ваших сбережений?');
 console.log('Ваш месячный доход: ', money, 'рублей');
 console.log('Ваши расходы за расчитываемый период: ', addExpenses);
 switch (deposit) {
