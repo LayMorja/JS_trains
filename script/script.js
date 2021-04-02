@@ -1,9 +1,9 @@
-let money = 25;
-let income = "";
-let addExpenses = 'Парарам';
-let deposit = [1, 2, 3];
-let mission = 'Невыполнима';
-let period = 38;
+let money,
+  income,
+  addExpenses,
+  deposit,
+  mission,
+  period;
 
 alert('Привет, как у тебя дела?');
 
