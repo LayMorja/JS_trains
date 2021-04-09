@@ -2,8 +2,8 @@
 let lang = prompt('Введите "ru" или "en"');
 
 let namePerson = prompt('Введите имя', 'Артём');
-namePerson === 'Артём' ? console.log('Директор') : console.log('Студент');
-namePerson === 'Максим' ? console.log('Преподователь') : console.log('Студент');
+namePerson === 'Артём' ? console.log('Директор') : namePerson === 'Максим' ? console.log('Преподователь') : console.log('Студент');
+;
 
 switch (lang) {
   case 'ru':
