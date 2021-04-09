@@ -3,7 +3,10 @@ let lang = prompt('Введите "ru" или "en"');
 
 let namePerson = prompt('Введите имя', 'Артём');
 namePerson === 'Артём' ? console.log('Директор') : namePerson === 'Максим' ? console.log('Преподователь') : console.log('Студент');
+<<<<<<< HEAD
 ;
+=======
+>>>>>>> f0112ab (Исправил ошибку тернарных операторов (создал вложенность))
 
 switch (lang) {
   case 'ru':
