@@ -1,6 +1,6 @@
 'use strict';
 
-let isNumber = function(n) {
+let isNumber = function (n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
@@ -29,27 +29,27 @@ switch (deposit) {
     deposit = false;
 };
 
-let start = function(){
+let start = function () {
   do {
     money = prompt('Каков Ваш месячный доход?', 50000);
-  } 
-  while(!isNumber(money))
+  }
+  while (!isNumber(money))
 };
 
 start();
 
 let expenses = [];
 
-let getExpensesMonth = function(){
+let getExpensesMonth = function () {
   let sum = 0;
 
   for (let i = 0; i < 2; i++) {
-    
+
     expenses[i] = prompt('Введите обязательную статью расходов', 'Домашние животные');
 
     sum += +prompt('Во сколько это обойдется?', 3000);
 
-    while (!isNumber(sum)){
+    while (!isNumber(sum)) {
       sum += +prompt('Во сколько это обойдется?', 3000);
     }
   }
@@ -60,7 +60,7 @@ let getExpensesMonth = function(){
 let expensesAmount = getExpensesMonth();
 
 
-let showTypeOf = function(data){
+let showTypeOf = function (data) {
   return typeof data;
 };
 console.log(showTypeOf(money));
@@ -74,21 +74,25 @@ console.log(addExpenses.toLowerCase().split(', '));
 // }
 console.log('Сумма обязательных расходов за месяц: ', expensesAmount);
 
-const getAccumulatedMonth = function(a, b){
+const getAccumulatedMonth = function (a, b) {
   return money - expensesAmount;
 }
 let accumulatedMonth = getAccumulatedMonth();
 // console.log('Ваши накопления за месяц: ', accumulatedMonth)
 
-const getTargetMonth = function(){
+const getTargetMonth = function () {
   return Math.ceil(mission / accumulatedMonth);
 }
-console.log('Ваш срок достижения цели: ', getTargetMonth(), 'месяцев');
+if (getTargetMonth() > 0) {
+  console.log('Ваш срок достижения цели: ', getTargetMonth(), 'месяцев');
+} else {
+  console.log('Цель не будет достигнута :(')
+}
 
 let budgetDay = Math.floor(accumulatedMonth / 30);
 console.log('Ваш дневной бюджет: ', budgetDay);
 
-const getStatusIncome = function(){
+const getStatusIncome = function () {
   if (budgetDay >= 1200) {
     return ('У Вас высокий уровень дохода');
   } else if (1200 > budgetDay > 600) {
