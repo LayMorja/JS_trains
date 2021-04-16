@@ -47,11 +47,12 @@ let getExpensesMonth = function () {
 
     expenses[i] = prompt('Введите обязательную статью расходов', 'Домашние животные');
 
-    sum += +prompt('Во сколько это обойдется?', 3000);
+    sum = +prompt('Во сколько это обойдется?');
 
     while (!isNumber(sum)) {
-      sum += +prompt('Во сколько это обойдется?', 3000);
+      sum = +prompt('Во сколько это обойдется?');
     }
+    sum += sum;
   }
   console.log(expenses);
   return sum;
