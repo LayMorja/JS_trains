@@ -14,6 +14,7 @@ let money,
     };
 start();
 
+// Большой объект
 let appData = {
   income: {},
   addIncome: [],
@@ -48,18 +49,19 @@ let appData = {
       appData.expensesMonth += appData.expenses[key];
     }
   },
-  getBudget: function(a, b) {
-    return appData.budget - appData.expensesMonth;
+  getBudget: function() {
+    appData.budgetMonth = appData.budget - appData.expensesMonth;
+    appData.budgetDay = Math.floor(appData.budgetMonth / 30);
   },
   getTargetMonth: function() {
-    return Math.ceil(appData.mission / accumulatedMonth);
+    return Math.ceil(appData.mission / appData.budgetMonth);
   },
   getStatusIncome: function() {
-    if (budgetDay >= 1200) {
+    if (appData.budgetDay >= 1200) {
       return ('У Вас высокий уровень дохода');
-    } else if (1200 > budgetDay > 600) {
+    } else if (1200 > appData.budgetDay > 600) {
       return ('У Вас средний уровень дохода');
-    } else if (600 >= budgetDay > 0) {
+    } else if (600 >= appData.budgetDay > 0) {
       return ('У Вас низкий уровень дохода');
     } else {
       return ('Что-то пошло не так :/');
@@ -67,20 +69,23 @@ let appData = {
   }
 };
 
+// Вызов всех нужных методов
 appData.asking();
 appData.getExpensesMonth();
+appData.getBudget();
 
-let expensesAmount = appData.expensesMonth,
-    accumulatedMonth = appData.getBudget(),
-    budgetDay = Math.floor(accumulatedMonth / 30);
-
-
-
-console.log('Сумма обязательных расходов за месяц: ', expensesAmount);
-console.log('Ваш дневной бюджет: ', budgetDay);
-console.log(appData.getStatusIncome());
+// "Консоль логи"
+console.log('Сумма обязательных расходов за месяц:', appData.expensesMonth);
 if (appData.getTargetMonth() > 0) {
-  console.log('Ваш срок достижения цели: ', appData.getTargetMonth(), 'месяцев');
+  console.log('Ваш срок достижения цели:', appData.getTargetMonth(), 'месяца');
 } else {
   console.log('Цель не будет достигнута :(')
 }
+console.log(appData.getStatusIncome());
+
+for (let key in appData) {
+  console.log('Наша программа включает в себя данные:', key, appData[key]);
+}
+
+// let expensesAmount = appData.expensesMonth;
+// console.log('Ваш дневной бюджет: ', budgetDay);
